@@ -43,11 +43,16 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 	
 public class Server implements Hello {
+
+		int invocationsCount;
 	
-    public Server() {}
+    public Server() {
+    	invocationsCount = 0;
+    }
 
     public String sayHello() {
-			return "Hello, world!";
+    	invocationsCount++;
+			return "Received "+invocationsCount+" RMIs so far";
     }
 	
     public static void main(String args[]) {
